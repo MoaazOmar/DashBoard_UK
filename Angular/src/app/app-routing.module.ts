@@ -8,6 +8,7 @@ import { RainIntensityReturnsComponent } from './rain-intensity-returns/rain-int
 import { SunshinePurchaseComponent } from './sunshine-purchase/sunshine-purchase.component';
 import { TempRangeOrdersComponent } from './temp-range-orders/temp-range-orders.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   {
@@ -26,6 +27,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }] 
 })
 export class AppRoutingModule { }
