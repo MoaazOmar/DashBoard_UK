@@ -1,0 +1,84 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<div class="union-jack-bg"></div>
+
+<div class="royal-particles">
+  <div class="royal-particle"></div>
+  <div class="royal-particle"></div>
+  <div class="royal-particle"></div>
+</div>
+
+<div class="dashboard-container">
+  <div class="header">
+    <div class="animated-icon">
+      <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="crown-svg">
+        <path d="M20 60 L30 40 L45 50 L60 30 L75 50 L90 40 L100 60 L85 70 L35 70 Z" fill="#FFD700" stroke="#FFA500" stroke-width="2"/>
+        <circle cx="30" cy="40" r="4" fill="#FF6B6B"/>
+        <circle cx="60" cy="30" r="5" fill="#4ECDC4"/>
+        <circle cx="90" cy="40" r="4" fill="#FF6B6B"/>
+        <rect x="35" y="65" width="50" height="10" fill="#FFD700" stroke="#FFA500" stroke-width="1"/>
+      </svg>
+    </div>
+    <h1>Weather Analytics Dashboard</h1>
+    <p class="subtitle">United Kingdom Business Intelligence Centre</p>
+    <button class="toggle-theme" (click)="toggleTheme()">
+      <i class="fas" [ngClass]="isDarkMode ? 'fa-sun' : 'fa-moon'"></i>
+      {{ isDarkMode ? 'Light Mode' : 'Dark Mode' }}
+    </button>
+  </div>
+
+  <div class="stats-icons">
+    <div class="stat-item" style="--delay: 1">
+      <div class="stat-icon"><i class="fas fa-thermometer-half"></i></div>
+      <div class="stat-label">Temperature</div>
+    </div>
+    <div class="stat-item" style="--delay: 2">
+      <div class="stat-icon"><i class="fas fa-cloud-rain"></i></div>
+      <div class="stat-label">Rainfall</div>
+    </div>
+    <div class="stat-item" style="--delay: 3">
+      <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+      <div class="stat-label">Sales</div>
+    </div>
+    <div class="stat-item" style="--delay: 4">
+      <div class="stat-icon"><i class="fas fa-sun"></i></div>
+      <div class="stat-label">Sunshine</div>
+    </div>
+    <div class="stat-item" style="--delay: 5">
+      <div class="stat-icon"><i class="fas fa-leaf"></i></div>
+      <div class="stat-label">Seasonal</div>
+    </div>
+  </div>
+
+  <div class="navigation-grid">
+    <a [routerLink]="'/dashboard/weather-sales'" class="nav-button">
+      <div class="nav-icon"><i class="fas fa-cloud-sun-rain"></i></div>
+      <div class="nav-text">Weather vs Sales</div>
+      <div class="nav-arrow"><i class="fas fa-chevron-right"></i></div>
+    </a>
+    <a [routerLink]="'/dashboard/temp-range-orders'" class="nav-button" (click)="onNavButtonClick($event)">
+      <div class="nav-icon"><i class="fas fa-temperature-low"></i></div>
+      <div class="nav-text">Temperature Range vs Orders</div>
+      <div class="nav-arrow"><i class="fas fa-chevron-right"></i></div>
+    </a>
+    <a [routerLink]="'/dashboard/rain-intensity-returns'" class="nav-button" (click)="onNavButtonClick($event)">
+      <div class="nav-icon"><i class="fas fa-cloud-showers-heavy"></i></div>
+      <div class="nav-text">Rain Intensity vs Returns</div>
+      <div class="nav-arrow"><i class="fas fa-chevron-right"></i></div>
+    </a>
+    <a [routerLink]="'/dashboard/season-sales-total'" class="nav-button" (click)="onNavButtonClick($event)">
+      <div class="nav-icon"><i class="fas fa-calendar-alt"></i></div>
+      <div class="nav-text">Season Sales vs Total Amount</div>
+      <div class="nav-arrow"><i class="fas fa-chevron-right"></i></div>
+    </a>
+    <a [routerLink]="'/dashboard/sunshine-purchase'" class="nav-button" (click)="onNavButtonClick($event)">
+      <div class="nav-icon"><i class="fas fa-sun"></i></div>
+      <div class="nav-text">Sunshine Hours vs Purchase</div>
+      <div class="nav-arrow"><i class="fas fa-chevron-right"></i></div>
+    </a>
+  </div>
+</div>
+<router-outlet></router-outlet>
+
+
+

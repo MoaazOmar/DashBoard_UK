@@ -1,0 +1,27 @@
+<div class="container">
+<canvas id="rainReturnsChart"></canvas>
+</div>
+<div class="returned-summary">
+  <h3>Transactions Summary</h3>
+  <div class="content-grid">
+    <div class="card" *ngFor="let item of list">
+      <div class="card-header">
+        <h3>Rain intensity:  </h3>
+        <span class="intensity-badge">{{item.intensity}}</span>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-label">Transactions returned</span>
+          <span class="stat-value returned">{{item.transactionsReturned}}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Transactions not returned</span>
+          <span class="stat-value not-returned">{{item.transactionsNotReturned}}</span>
+        </div>
+        <div class="stat-item total-item">
+          <span class="stat-label">Total transactions</span>
+          <span class="stat-value total">{{item.transactionsReturned + item.transactionsNotReturned}}</span>
+        </div>
+      </div>
+    </div>
+  </div>

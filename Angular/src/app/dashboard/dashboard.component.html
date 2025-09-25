@@ -1,0 +1,209 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<div class="background-container">
+  <!-- Mountain landscape background -->
+  <img
+    src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+    alt="Mountain Landscape" class="mountain-bg">
+</div>
+<div class="container">
+  <!-- Overlay -->
+  <div class="overlay" id="overlay" #overlay (click)="toggleSidebar()"></div>
+
+  <!-- Sidebar -->
+  <div class="sidebar" #sidebar>
+    <div class="header-sidebar">
+      <h2><i class="fas fa-compass" id='compass'></i>Navigation</h2>
+      <button class="close-sidebar" id="closeSidebar" (click)="toggleSidebar()">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <!-- <div>
+        <i class="fa-solid fa-circle-xmark" (click)="toggleSidebar()"></i>
+      </div> -->
+    </div>
+    <ul>
+      <li><a (click)="toggleSidebar()" [routerLink]="'/dashboard/weather-sales'">
+          <div class="icon">
+            <div class="bar-chart">
+              <div class="bar bar-1"></div>
+              <div class="bar bar-2"></div>
+              <div class="bar bar-3"></div>
+              <div class="bar bar-4"></div>
+              <div class="bar bar-5"></div>
+            </div>
+          </div>
+
+          <h3 class="icon-title">Weather Impact on Sales</h3>
+
+        </a></li>
+      <li>
+        <a (click)="toggleSidebar()" [routerLink]="'/dashboard/temp-range-orders'">
+          <div class="icon">
+            <div class="scatter-chart">
+              <div class="point point-1"></div>
+              <div class="point point-2"></div>
+              <div class="point point-3"></div>
+              <div class="point point-4"></div>
+              <div class="point point-5"></div>
+              <div class="point point-6"></div>
+            </div>
+          </div>
+          <h3 class="icon-title">Temperature vs Order Value</h3>
+        </a>
+      </li>
+      <li> <a (click)="toggleSidebar()" [routerLink]="'/dashboard/rain-intensity-returns'">
+          <div class="stacked-bars-container">
+            <div class="stacked-bar">
+              <div class="stack-segment segment-a"></div>
+              <div class="stack-segment segment-b"></div>
+              <div class="stack-segment segment-c"></div>
+            </div>
+            <div class="stacked-bar">
+              <div class="stack-segment segment-c"></div>
+              <div class="stack-segment segment-a"></div>
+              <div class="stack-segment segment-b"></div>
+            </div>
+            <div class="stacked-bar">
+              <div class="stack-segment segment-b"></div>
+              <div class="stack-segment segment-c"></div>
+              <div class="stack-segment segment-a"></div>
+            </div>
+          </div>
+          <h3 class="icon-title">Rain Intensity vs Returns</h3>
+
+        </a></li>
+      <li><a (click)="toggleSidebar()" [routerLink]="'/dashboard/season-sales-total'">
+          <div class="pie-container">
+            <div class="pie-chart">
+              <div class="pie-segment segment-1"></div>
+              <div class="pie-segment segment-2"></div>
+              <div class="pie-segment segment-3"></div>
+              <div class="pie-segment segment-4"></div>
+            </div>
+            <div class="pie-center"></div>
+          </div>
+          <h3 class="icon-title">Seasonal Sales Patterns</h3>
+        </a></li>
+      <li> <a (click)="toggleSidebar()" [routerLink]="'/dashboard/sunshine-purchase'">
+          <div class="line-chart">
+            <svg viewBox="0 0 100 60" class="line">
+              <path d="M10,48 L30,24 L50,36 L70,12 L90,6" class="line-path" />
+            </svg>
+            <div class="data-point point-a"></div>
+            <div class="data-point point-b"></div>
+            <div class="data-point point-c"></div>
+            <div class="data-point point-d"></div>
+            <div class="data-point point-e"></div>
+          </div>
+          <h3 class="icon-title">Sunshine Hours vs Purchases</h3>
+        </a></li>
+      <li>
+        <a (click)="toggleSidebar()" [routerLink]="'/'">🏠 Home</a>
+      </li>
+
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content" #mainContent>
+    <div class="header">
+      <div>
+        <h1>Welcome to Our Dashboard</h1>
+        <p>Experience smooth sidebar animations with GSAP</p>
+      </div>
+      <!-- Light/Dark mode switch -->
+      <app-toggle-dl></app-toggle-dl>
+
+      <button class="menu-btn" id="menuBtn" (click)="toggleSidebar()">
+        ☰ Menu
+      </button>
+    </div>
+
+    <div class="content-grid">
+      <div *ngIf="currentRoute === '/dashboard'" class="content-grid">
+        <div class="card">
+          <h3>Weather Impact Analytics</h3>
+          <p>Analyze how weather conditions affect sales performance.</p>
+        </div>
+        <div class="card">
+          <h3>Default Insights</h3>
+          <p>Explore key patterns and insights across different datasets.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Weather Impact on Sales Page -->
+    <div class="content-grid" *ngIf="currentRoute === '/dashboard/weather-sales'">
+      <div class="card">
+        <h3>Weather Impact on Sales Analysis</h3>
+        <p>Comprehensive analysis of how different weather categories (Sunny, Rainy, Cloudy, Snowy) affect total sales
+          performance and revenue patterns.</p>
+      </div>
+      <div class="card">
+        <h3>Weather-Driven Sales Forecasting</h3>
+        <p>Leverage weather data to predict sales trends and optimize inventory planning based on upcoming weather
+          conditions.</p>
+      </div>
+      <div class="card">
+        <h3>Customer Behavior Insights</h3>
+        <p>Understand how weather influences purchasing decisions and customer engagement across different product
+          categories.</p>
+      </div>
+    </div>
+
+    <!-- Temperature vs Order Value Page -->
+    <div class="content-grid" *ngIf="currentRoute === '/dashboard/temp-range-orders'">
+      <div class="card">
+        <h3>Temperature Range vs Transaction Volume</h3>
+        <p>Interactive bubble chart analyzing the relationship between temperature ranges and the number of transactions
+          across different order value categories (Small, Medium, Large).</p>
+      </div>
+      <div class="card">
+        <h3>Thermal Comfort Zone Analysis</h3>
+        <p>Identify optimal temperature ranges that drive maximum transaction volume and customer purchasing activity.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Seasonal Temperature Impact</h3>
+        <p>Explore how temperature variations throughout seasons affect order patterns and customer spending behavior.
+        </p>
+      </div>
+    </div>
+    <!-- Rain Intensity vs Returns Page -->
+    <div class="content-grid" *ngIf="currentRoute === '/dashboard/rain-intensity-returns'">
+      <div class="card">
+        <h3>Rain Intensity vs Returns Analysis</h3>
+        <p>Explore how different rain intensity levels affect product return rates and customer behavior.</p>
+      </div>
+      <div class="card">
+        <h3>Return Pattern Insights</h3>
+        <p>Identify return trends based on weather conditions to optimize inventory management.</p>
+      </div>
+    </div>
+
+    <!-- Seasonal Sales Patterns Page -->
+    <div class="content-grid" *ngIf="currentRoute === '/dashboard/season-sales-total'">
+      <div class="card">
+        <h3>Seasonal Sales Analysis</h3>
+        <p>Discover how sales performance varies across different seasons and weather patterns.</p>
+      </div>
+      <div class="card">
+        <h3>Seasonal Planning</h3>
+        <p>Use seasonal insights to prepare for peak periods and optimize stock levels.</p>
+      </div>
+    </div>
+
+    <!-- Sunshine Hours vs Purchases Page -->
+    <div class="content-grid" *ngIf="currentRoute === '/dashboard/sunshine-purchase'">
+      <div class="card">
+        <h3>Sunshine Impact Analysis</h3>
+        <p>Analyze how sunshine hours influence customer purchasing behavior and sales frequency.</p>
+      </div>
+      <div class="card">
+        <h3>Sunlight-driven Strategies</h3>
+        <p>Leverage sunshine data to optimize marketing campaigns and store operations.</p>
+      </div>
+    </div>
+
+    <router-outlet></router-outlet>
+  </div>
+</div>

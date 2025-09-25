@@ -1,0 +1,1048 @@
+/* ============================= */
+/* 🔹 RESET & BASE STYLES        */
+/* ============================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background_color);
+  color: var(--text_color);
+  overflow-x: hidden;
+}
+
+/* ============================= */
+/* 🔹 SIDEBAR STYLES             */
+/* ============================= */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 100vh;
+  background: linear-gradient(135deg, var(--primary_color), var(--secondary_color));
+  color: var(--light-text);
+  padding: 20px;
+  z-index: 1000;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.sidebar>* {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.sidebar h2 {
+  margin-bottom: 30px;
+  font-size: 24px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 10px;
+  color: var(--light-text);
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  margin-bottom: 15px;
+}
+
+.sidebar a {
+  color: var(--light-text);
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 11px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover {
+  background-color: var(--hover-dark);
+}
+
+/* ============================= */
+/* 🔹 MAIN CONTENT               */
+/* ============================= */
+.main-content {
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+}
+
+/* ============================= */
+/* 🔹 HEADER                     */
+/* ============================= */
+.header {
+  background: var(--background_color);
+  backdrop-filter: blur(10px);
+  padding: 25px 30px;
+  margin-bottom: 30px;
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-left: 5px solid var(--primary_color);
+  transition: var(--transition);
+}
+
+.header:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+.header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 5px;
+  background: linear-gradient(135deg, var(--primary_color), var(--secondary_color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header p {
+  color: var(--text_color);
+  font-size: 16px;
+  margin: 0;
+}
+
+/* ============================= */
+/* 🔹 ENHANCED BUTTONS           */
+/* ============================= */
+.menu-btn {
+  background: linear-gradient(135deg, var(--primary_color), var(--secondary_color));
+  color: var(--light-text);
+  border: none;
+  padding: 14px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.menu-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.menu-btn:active {
+  transform: translateY(0);
+}
+
+/* ============================= */
+/* 🔹 CONTENT CARDS              */
+/* ============================= */
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: 2fr;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.card {
+  background: var(--background_color);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  padding-bottom: 50px;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary_color), var(--secondary_color));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.card h3 {
+  color: var(--dark);
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.card h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary_color), var(--secondary_color));
+  border-radius: 3px;
+}
+
+.card p {
+  color: var(--text_color);
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+/* ============================= */
+/* 🔹 OVERLAY                    */
+/* ============================= */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ============================= */
+/* 🔹 ICONS & ANIMATIONS         */
+/* ============================= */
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  height: 52px;
+  gap: 3px;
+}
+
+.bar {
+  width: 15px;
+  background: linear-gradient(to top, #ff7e5f, #feb47b);
+  /* Fixed colors for bars */
+  border-radius: 3px 3px 0 0;
+  transform-origin: bottom;
+  animation: growBar 1.5s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes growBar {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+.scatter-chart .point {
+  background: #ff7e5f;
+  /* Fixed color for scatter points */
+}
+
+.stacked-bars-container .stack-segment {
+  background: #ff7e5f;
+  /* Fixed color for stacked bars */
+}
+
+.pie-chart .pie-segment {
+  background: #ff7e5f;
+  /* Fixed color for pie segments */
+}
+
+.line-chart .line-path {
+  stroke: #ff7e5f;
+  /* Fixed color for line chart */
+}
+
+.line-chart .data-point {
+  background: #ff7e5f;
+  /* Fixed color for data points */
+}
+
+.sidebar-header h2 i {
+  background: linear-gradient(135deg, #fd1cd8, #0fff8f);
+  /* Fixed gradient for icon */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.close-sidebar {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--light-text);
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -18%;
+  right: 15px;
+}
+
+.close-sidebar:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+  color: red;
+}
+
+/* ============================= */
+/* 🔹 MEDIA QUERIES (Responsive) */
+/* ============================= */
+@media (max-width: 1045px) {
+  .header-sidebar {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .header-sidebar h2 {
+    align-self: center;
+    font-size: 2.5rem;
+    padding-bottom: 0;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  .main-content {
+    margin-left: 0 !important;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .header-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .menu-btn,
+  .theme-toggle {
+    width: 100%;
+  }
+
+  .icon {
+    height: 30px;
+  }
+
+  .bar-chart,
+  .scatter-chart,
+  .stacked-bars-container,
+  .pie-container,
+  .line-chart {
+    transform: scale(0.8);
+  }
+
+  .close-sidebar {
+    top: 10% !important;
+  }
+
+  #sidebar {
+    margin-bottom: 0 !important;
+    border-bottom: none;
+  }
+}
+
+/* ============================= */
+/* 🔹 SIDEBAR HEADER & CLOSE BTN */
+/* ============================= */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-header h2 {
+  font-size: 26px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar-header h2 i {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 28px;
+}
+
+.close-sidebar {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -18%;
+  right: 15px;
+}
+
+.close-sidebar:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+  color: red;
+}
+
+/* icon and it's animation first one */
+.icon {
+  /* width: 120px; */
+  height: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.icon-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  /* margin-bottom: 10px; */
+  color: var(--text_color);
+}
+
+.icon-desc {
+  font-size: 0.95rem;
+  color: #555 !important;
+  line-height: 1.5;
+}
+
+/* Bar Chart Icon */
+.bar {
+  width: 15px;
+  background: linear-gradient(to top, #ff7e5f, #feb47b) !important;
+  border-radius: 3px 3px 0 0;
+  transform-origin: bottom;
+  opacity: 0;
+  transform: scaleY(0);
+
+  /* أول ما الصفحة تفتح يشتغل */
+  animation: growBar 1.5s ease-out forwards;
+}
+
+li:hover .bar {
+  /* عند الـ hover شغّل نسخة جديدة */
+  animation: growBarHover 1.5s ease-out forwards;
+}
+
+.bar-1 {
+  height: 60%;
+  animation-delay: 0.2s;
+}
+
+.bar-2 {
+  height: 40%;
+  animation-delay: 0.4s;
+}
+
+.bar-3 {
+  height: 80%;
+  animation-delay: 0.6s;
+}
+
+.bar-4 {
+  height: 30%;
+  animation-delay: 0.8s;
+}
+
+.bar-5 {
+  height: 65%;
+  animation-delay: 1s;
+}
+
+@keyframes growBar {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes growBarHover {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+
+/* icon and it's animation 2nd */
+/* Scatter Chart Icon */
+.scatter-chart {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  border-left: 2px solid #333 !important;
+  border-bottom: 2px solid #333 !important;
+  margin-top: 9px;
+}
+
+.point {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #4bab2e !important;
+  opacity: 0;
+  transform: scale(0);
+  animation: popIn 0.8s ease-out forwards;
+}
+
+li:hover .point {
+  animation: popInHover 0.8s ease-out forwards;
+}
+
+li:hover .point-1 {
+  top: 20%;
+  left: 15%;
+  animation-delay: 0.2s;
+}
+
+li:hover .point-2 {
+  top: 40%;
+  left: 30%;
+  background: #A23B72 !important;
+  animation-delay: 0.4s;
+}
+
+li:hover .point-3 {
+  top: 60%;
+  left: 50%;
+  background: #F18F01 !important;
+  animation-delay: 0.6s;
+}
+
+li:hover .point-4 {
+  top: 30%;
+  left: 70%;
+  animation-delay: 0.8s;
+}
+
+li:hover .point-5 {
+  top: 70%;
+  left: 25%;
+  background: #C73E1D !important;
+  animation-delay: 1.0s;
+}
+
+li:hover .point-6 {
+  top: 50%;
+  left: 60%;
+  animation-delay: 1.2s;
+}
+
+.point-1 {
+  top: 20%;
+  left: 15%;
+  animation-delay: 0.2s;
+}
+
+.point-2 {
+  top: 40%;
+  left: 30%;
+  background: #A23B72 !important;
+  animation-delay: 0.4s;
+}
+
+.point-3 {
+  top: 60%;
+  left: 50%;
+  background: #F18F01 !important;
+  animation-delay: 0.6s;
+}
+
+.point-4 {
+  top: 30%;
+  left: 70%;
+  animation-delay: 0.8s;
+}
+
+.point-5 {
+  top: 70%;
+  left: 25%;
+  background: #C73E1D !important;
+  animation-delay: 1.0s;
+}
+
+.point-6 {
+  top: 50%;
+  left: 60%;
+  animation-delay: 1.2s;
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  70% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes popInHover {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  70% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* design and animation of 3rd icon */
+.stacked-bars-container {
+  display: flex;
+  align-items: flex-end;
+  height: 10px;
+  /* gap: 15px; */
+  margin-top: 15px;
+}
+
+.stacked-bar {
+  display: flex;
+  flex-direction: column;
+  height: 30px;
+  width: 25px;
+  border-radius: 3px 3px 0 0;
+  overflow: hidden;
+}
+
+.stack-segment {
+  width: 63%;
+  ;
+  transition: all 0.3s ease;
+}
+
+.stack-segment:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.segment-a {
+  background: linear-gradient(to right, #00c6ff, #0072ff) !important;
+  height: 40%;
+  animation: growStack 1s ease-out forwards;
+  animation-delay: 0.2s;
+  transform-origin: bottom;
+}
+
+.segment-b {
+  background: linear-gradient(to right, #0072ff, #0056c7) !important;
+  height: 30%;
+  animation: growStack 1s ease-out forwards;
+  animation-delay: 0.4s;
+  transform-origin: bottom;
+}
+
+.segment-c {
+  background: linear-gradient(to right, #0056c7, #0042a3) !important;
+  height: 30%;
+  animation: growStack 1s ease-out forwards;
+  animation-delay: 0.6s;
+  transform-origin: bottom;
+}
+
+@keyframes growStack {
+  from {
+    transform: scaleY(0);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+
+li:hover .segment-a {
+  animation: growStackHover 1s ease-out forwards 0.2s;
+}
+
+li:hover .segment-b {
+  animation: growStackHover 1s ease-out forwards 0.4s;
+}
+
+li:hover .segment-c {
+  animation: growStackHover 1s ease-out forwards 0.6s;
+}
+
+@keyframes growStackHover {
+  from {
+    transform: scaleY(0);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* icon 4th and it's design */
+/* Pie Chart Icon */
+.pie-container {
+  width: 40px;
+  height: 40px;
+  position: relative;
+}
+
+.pie-chart {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  transform: rotate(-90deg);
+}
+
+.pie-segment {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 50% 100%);
+  transform-origin: center;
+}
+
+.segment-1 {
+  background: #FF9A8B !important;
+  transform: rotate(0deg);
+  animation: fillPie1 1.5s ease-out forwards;
+}
+
+.segment-2 {
+  background: #FF6B6B !important;
+  transform: rotate(0deg);
+  animation: fillPie2 1.5s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+.segment-3 {
+  background: #4ECDC4 !important;
+  transform: rotate(0deg);
+  animation: fillPie3 1.5s ease-out forwards;
+  animation-delay: 1s;
+}
+
+.segment-4 {
+  background: #556270 !important;
+  transform: rotate(0deg);
+  animation: fillPie4 1.5s ease-out forwards;
+  animation-delay: 1.5s;
+}
+
+@keyframes fillPie1 {
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes fillPie2 {
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes fillPie3 {
+  to {
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes fillPie4 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.pie-center {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: white !important;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+li:hover .segment-1 {
+  animation: fillPie1Hover 1.5s ease-out forwards;
+}
+
+li:hover .segment-2 {
+  animation: fillPie2Hover 1.5s ease-out forwards 0.5s;
+}
+
+li:hover .segment-3 {
+  animation: fillPie3Hover 1.5s ease-out forwards 1s;
+}
+
+li:hover .segment-4 {
+  animation: fillPie4Hover 1.5s ease-out forwards 1.5s;
+}
+
+@keyframes fillPie1Hover {
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes fillPie2Hover {
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes fillPie3Hover {
+  to {
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes fillPie4Hover {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* icon and animation no.5 */
+/* Line Chart Icon */
+.line-chart {
+  width: 100%;
+  max-width: 60px;
+  aspect-ratio: 100 / 60;
+  position: relative;
+  border-left: 2px solid #333;
+  border-bottom: 2px solid #333;
+}
+
+.line-path {
+  fill: none;
+  stroke: #6A0DAD !important;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 150;
+  stroke-dashoffset: 150;
+  animation: drawLine 2s ease-out forwards;
+}
+
+.data-point {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #6A0DAD !important;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: popPoint 0.5s ease-out forwards;
+}
+
+.point-a {
+  top: 80%;
+  left: 10%;
+  animation-delay: 0.5s;
+}
+
+.point-b {
+  top: 40%;
+  left: 30%;
+  animation-delay: 1.0s;
+}
+
+.point-c {
+  top: 60%;
+  left: 50%;
+  animation-delay: 1.5s;
+}
+
+.point-d {
+  top: 22%;
+  left: 70%;
+  animation-delay: 2.0s;
+}
+
+.point-e {
+  top: 10%;
+  left: 90%;
+  animation-delay: 2.5s;
+}
+
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes popPoint {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  70% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+li:hover .line-path {
+  animation: drawLineHover 2s ease-out forwards;
+}
+
+li:hover .point-a {
+  animation: popPointHover 0.5s ease-out forwards 0.5s;
+}
+
+li:hover .point-b {
+  animation: popPointHover 0.5s ease-out forwards 1s;
+}
+
+li:hover .point-c {
+  animation: popPointHover 0.5s ease-out forwards 1.5s;
+}
+
+li:hover .point-d {
+  animation: popPointHover 0.5s ease-out forwards 2s;
+}
+
+li:hover .point-e {
+  animation: popPointHover 0.5s ease-out forwards 2.5s;
+}
+
+@keyframes drawLineHover {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes popPointHover {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  70% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.sidebar .sidebar-header h2 {
+  font-size: 26px !important;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0;
+  /* يلغي margin من `.sidebar h2` */
+  border-bottom: none;
+  /* يلغي الـ border */
+  padding-bottom: 0;
+  /* يلغي padding */
+}
+
+#compass {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 28px;
+}
+
+
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.mountain-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.9) saturate(1.2);
+}

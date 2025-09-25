@@ -1,0 +1,204 @@
+/* season-sales-total.component.css */
+.container {
+  width: 100%;
+  max-width: 650px;   
+  margin: 20px auto;
+  background: var(--background_color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.season-summary {
+  width: 100%;
+  max-width: 650px;
+  margin: 30px auto;
+  padding: 20px;
+  background: var(--background_color);
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+}
+
+.summary-title {
+  text-align: center;
+  color: var(--text_color);
+  margin-bottom: 25px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  position: relative;
+}
+
+.summary-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--primary_color);
+  border-radius: 2px;
+}
+
+.seasons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.season-item {
+  background: var(--background_color);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 18px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.season-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--primary_color), transparent);
+  transition: left 0.6s;
+}
+
+.season-item:hover {
+  border-color: var(--primary_color);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.season-item:hover::before {
+  left: 100%;
+}
+
+.season-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.season-name {
+  color: var(--text_color);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.season-stats {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.amount {
+  color: var(--primary_color);
+  font-weight: bold;
+  font-size: 1.1rem;
+  background: rgba(253, 28, 216, 0.1);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.percentage {
+  color: var(--secondary_color_font);
+  font-weight: bold;
+  font-size: 1.3rem;
+  background: rgba(15, 255, 143, 0.1);
+  padding: 4px 12px;
+  border-radius: 6px;
+}
+
+.percentage-bar {
+  width: 100%;
+  height: 6px;
+  background: var(--border-light);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary_color), var(--secondary_color));
+  border-radius: 3px;
+  transition: width 1.5s ease-out;
+  position: relative;
+}
+
+.bar-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100px); }
+  100% { transform: translateX(200px); }
+}
+
+/* Dark theme enhancements */
+[data-theme="dark"] .season-item:hover {
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .bar-fill::after {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .season-summary {
+    padding: 15px;
+    margin: 20px auto;
+  }
+  
+  .season-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .season-stats {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .summary-title {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .season-item {
+    padding: 15px;
+  }
+  
+  .season-stats {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  
+  .amount, .percentage {
+    font-size: 1rem;
+  }
+}

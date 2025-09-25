@@ -1,0 +1,146 @@
+/* ============================= */
+/* 🔹 ROOT VARIABLES             */
+/* ============================= */
+:root {
+  --uk-red: #CF142B;
+  --uk-blue: #012169;
+  --uk-white: #FFFFFF;
+  --uk-gold: #FFD700;
+  --primary: #ff7e5f;
+  --secondary: #feb47b;
+  --accent-color: var(--uk-gold);
+  --light-bg: #F7FAFC;
+  --dark-bg: #1A202C;
+  --light-text: #1A202C;
+  --dark-text: var(--uk-white);
+  --border-light: #E2E8F0;
+  --border-dark: #4A5568;
+  --hover-light: #E6E8EB;
+  --hover-dark: #1C2526;
+  --sp: 2.5s;
+}
+
+.dark-mode {
+  --background: var(--dark-bg);
+  --text-color: var(--dark-text);
+  --border: var(--border-dark);
+  --hover: var(--hover-dark);
+  --sp: 2.5s;
+}
+
+:root {
+  --primary_color: #fd1cd8;
+  --secondary_color: #0fff8f;
+  --text_color: #1a1a00;
+  --secondary_color_font: #20c997;
+  --background_color: #DFF6FF99;
+  --border-light: #EDE7F6CC;
+  --hover-light: #f0f0f0;
+  --border-dark: #F7E7CE66;
+  --dark: #333;
+  --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  --hover-dark: rgba(255, 255, 255, 0.1);
+  --loading-primary: #1eff00;
+  --loading-secondary: #85ff34;
+  --grid-color: rgba(0, 0, 0, 0.1);
+  --sp: 2.5s;
+  --bg-color: #FFFFFF;
+  --card-bg: #f8f9fa;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* --sp: 2.5s; 
+    --primary: #00ff37;
+    --secondary: #34ff60;
+    --grid-color: rgba(255, 255, 255, 0.1); */
+
+[data-theme="dark"] {
+  --primary_color: #a3008f;
+  --secondary_color: #00c67a;
+  --secondary_color_font: #7cfc00;
+  --text_color: #e0b3f0;
+  --background_color: #0007;
+  --border-light: #444;
+  --light-text: #ccc;
+  --hover-light: #333;
+  --border-dark: #666;
+  --dark: #fff;
+  --card-shadow: 0 4px 15px rgba(211, 188, 188, 0.3);
+  --hover-dark: rgba(255, 255, 255, 0.2);
+  --loading-primary: #00ff37;
+  --loading-secondary: #34ff60;
+  --grid-color: rgba(255, 255, 255, 0.1);
+  --sp: 2.5s;
+  --bg-color: #181818;
+  --card-bg: #2a2a2a;
+
+  --shadow: rgba(255, 255, 255, 0.1);
+}
+
+/* ============================= */
+/* 🔹 BODY RESET                 */
+/* ============================= */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ============================= */
+/* 🔹 HOST (Light / Dark Mode)   */
+/* ============================= */
+/* :host {
+  display: block;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: var(--light-bg);
+  color: var(--light-text);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+:host.dark {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+} */
+
+/* ============================= */
+/* 🔹 BACKGROUNDS                */
+/* ============================= */
+/* .union-jack-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+  background: linear-gradient(45deg, var(--uk-blue) 20%, var(--uk-red) 40%, var(--uk-white) 60%, var(--uk-blue) 80%);
+  background-size: cover;
+  opacity: 0.08;
+  animation: subtleWave 12s ease-in-out infinite;
+}
+
+:host.dark .union-jack-bg { opacity: 0.05; }
+
+@keyframes subtleWave {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.heritage-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+  background: linear-gradient(135deg, var(--uk-blue) 0%, var(--uk-red) 50%, var(--uk-blue) 100%);
+  background-attachment: fixed;
+  opacity: 0.1;
+  animation: heritageWave 15s ease-in-out infinite;
+}
+
+:host.dark .heritage-bg { opacity: 0.07; }
+
+@keyframes heritageWave {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+} */

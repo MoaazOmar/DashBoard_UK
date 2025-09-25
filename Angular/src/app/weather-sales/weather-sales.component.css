@@ -1,0 +1,14 @@
+.container {
+  width: 80%;
+  margin: 20px auto;
+  text-align: center;
+  background:var(--background_color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+canvas {
+  width: 100% !important;
+  height: auto !important;
+}

@@ -1,0 +1,22 @@
+<div class="container">
+  <canvas id="sunshinePurchase"></canvas>
+</div>
+<!-- Comparison Section -->
+<div class="comparison">
+  <div class="decoration decoration-1"></div>
+  <div class="decoration decoration-2"></div>
+
+  <h2>NightShift vs MorningShift</h2>
+  <div class="comparison-cards">
+    <div class="box night-shift">
+      <div class="icon">🌙</div>
+      <div class="label">Night Shift Sales</div>
+      <div class="value animated">{{dataNight[0] || 0 }}</div>
+    </div>
+    <div class="box light-sales">
+      <div class="icon">☀️</div>
+      <div class="label">Light Sales</div>
+      <div class="value animated">{{ getTotalLightSale() }}</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,241 @@
+/* ============================= */
+/* 🌗 Dark / Light Toggle Switch */
+/* ============================= */
+.theme-switch {
+    --toggle-size: 30px;
+    --container-width: 90px;
+    --container-height: 40px;
+    --container-radius: 34px;
+    --container-light-bg: #3D7EAE;
+    --container-night-bg: #1D1F2C;
+    --circle-container-diameter: 54px;
+    --sun-moon-diameter: 34px;
+    --sun-bg: #ECCA2F;
+    --moon-bg: #C4C9D1;
+    --spot-color: #959DB1;
+    --circle-container-offset: -7px;
+    --stars-color: #fff;
+    --clouds-color: #F3FDFF;
+    --back-clouds-color: #AACADF;
+    --transition: .5s cubic-bezier(0, -0.02, 0.4, 1.25);
+    --circle-transition: .3s cubic-bezier(0, -0.02, 0.35, 1.17);
+
+    position: relative;
+    display: inline-block;
+    width: var(--container-width);
+    height: var(--container-height);
+}
+
+.theme-switch,
+.theme-switch *,
+.theme-switch *::before,
+.theme-switch *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: var(--toggle-size);
+}
+
+.theme-switch__checkbox {
+    display: none;
+}
+
+/* ============================= */
+/* 🌤️ Container */
+/* ============================= */
+.theme-switch__container {
+    width: 100%;
+    height: 100%;
+    background-color: var(--container-light-bg);
+    border-radius: var(--container-radius);
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25),
+                0 1px 2px rgba(255, 255, 255, 0.94);
+    transition: var(--transition);
+    position: relative;
+}
+
+.theme-switch__container::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset,
+                0 1px 3px rgba(0, 0, 0, 0.25) inset;
+    border-radius: var(--container-radius);
+}
+
+/* ============================= */
+/* 🌞 Sun / Moon Circle */
+/* ============================= */
+.theme-switch__circle-container {
+    width: var(--circle-container-diameter);
+    height: var(--circle-container-diameter);
+    background-color: rgba(255, 255, 255, 0.1);
+    position: absolute;
+    left: var(--circle-container-offset);
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 0 12px rgba(255,255,255,0.06),
+                0 0 0 10px rgba(255, 255, 255, 0.1),
+                0 0 0 20px rgba(255, 255, 255, 0.1);
+    transition: var(--circle-transition);
+    pointer-events: none;
+}
+
+/* 🌞 Sun container */
+.theme-switch__sun-moon-container {
+    pointer-events: auto;
+    position: relative;
+    z-index: 2;
+    width: var(--sun-moon-diameter);
+    height: var(--sun-moon-diameter);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--sun-bg);
+    box-shadow: 1px 1px 1px 0px rgba(254, 255, 239, 0.61) inset,
+                0 -1px 1px 0px #a1872a inset;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+/* 🌙 Moon */
+.theme-switch__moon {
+    transform: translateX(100%);
+    width: 100%;
+    height: 100%;
+    background-color: var(--moon-bg);
+    border-radius: 50%;
+    transition: var(--transition);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.theme-switch__spot {
+    position: absolute;
+    top: 12px;
+    left: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: var(--container-radius);
+    background-color: var(--spot-color);
+    box-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.25) inset;
+}
+.theme-switch__spot:nth-of-type(2) {
+    width: 6px;
+    height: 6px;
+    top: 15px;
+    left: 22px;
+}
+.theme-switch__spot:nth-last-of-type(3) {
+    width: 4px;
+    height: 4px;
+    top: 5px;
+    left: 13px;
+}
+
+/* ============================= */
+/* ☁️ Clouds */
+/* ============================= */
+.theme-switch__clouds {
+    width: 20px;
+    height: 20px;
+    background-color: var(--clouds-color);
+    border-radius: var(--container-radius);
+    position: absolute;
+    bottom: -10px;
+    left: 5px;
+    box-shadow: 15px 5px var(--clouds-color),
+                -5px -5px var(--back-clouds-color),
+                23px 6px var(--clouds-color),
+                8px -2px var(--back-clouds-color),
+                35px 0 var(--clouds-color),
+                20px -1px var(--back-clouds-color),
+                47px 5px var(--clouds-color),
+                32px -5px var(--back-clouds-color),
+                58px -1px var(--clouds-color),
+                42px 0 var(--back-clouds-color),
+                72px -5px var(--clouds-color),
+                54px -7px var(--back-clouds-color),
+                74px -28px 0 7px var(--clouds-color),
+                64px -10px var(--back-clouds-color),
+                66px -34px 0 7px var(--back-clouds-color);
+    transition: 0.5s cubic-bezier(0, -0.02, 0.4, 1.25);
+}
+
+/* ============================= */
+/* ⭐ Stars */
+/* ============================= */
+.theme-switch__stars-container {
+    position: absolute;
+    color: var(--stars-color);
+    top: -100%;
+    left: 5px;
+    width: 44px;
+    height: auto;
+    transition: var(--transition);
+}
+
+/* ============================= */
+/* ✅ Checked (Night Mode) */
+/* ============================= */
+.theme-switch__checkbox:checked + .theme-switch__container {
+    background-color: var(--container-night-bg);
+}
+
+.theme-switch__checkbox:checked + .theme-switch__container .theme-switch__circle-container {
+    left: calc(100% - var(--circle-container-diameter) + 7px);
+}
+
+.theme-switch__checkbox:checked + .theme-switch__container .theme-switch__moon {
+    transform: translateX(0);
+}
+
+.theme-switch__checkbox:checked + .theme-switch__container .theme-switch__clouds {
+    bottom: -65px;
+}
+
+.theme-switch__checkbox:checked + .theme-switch__container .theme-switch__stars-container {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* ============================= */
+/* ✨ Hover Effects */
+/* ============================= */
+.theme-switch__circle-container:hover {
+    left: calc(var(--circle-container-offset) - 5px);
+}
+
+/* تحريك الشمس */
+.theme-switch__sun-moon-container:hover {
+    transform: rotate(5deg) scale(1.05);
+}
+
+/* تحريك القمر */
+.theme-switch__checkbox:checked + .theme-switch__container .theme-switch__sun-moon-container:hover {
+    transform: rotate(-5deg) scale(1.05);
+}
+/* تأثير hover على الشمس/القمر */
+.theme-switch__sun-moon-container:hover {
+    transform: scale(1.15) rotate(10deg);
+    box-shadow: 0 0 10px rgba(255, 223, 0, 0.6), 
+                0 0 20px rgba(255, 223, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* تأثير مختلف للـ moon لما يكون دارك */
+.theme-switch__checkbox:checked + .theme-switch__container 
+.theme-switch__sun-moon-container:hover {
+    transform: scale(1.15) rotate(-10deg);
+    box-shadow: 0 0 10px rgba(196, 201, 209, 0.6), 
+                0 0 20px rgba(196, 201, 209, 0.4);
+}

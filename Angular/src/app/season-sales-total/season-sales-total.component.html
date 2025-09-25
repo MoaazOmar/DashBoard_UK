@@ -1,0 +1,26 @@
+<!-- season-sales-total.component.html -->
+<div class="container">
+  <canvas id="seasonSalesChart"></canvas>
+</div>
+<div class="season-summary">
+  <h3 class="summary-title">Season Performance</h3>
+  <div class="seasons-container">
+    <div class="season-item" *ngFor="let res of results" 
+         [style.--percentage]="res.percentage + '%'"
+         (mouseenter)="highlightSeason(res.season)"
+         (mouseleave)="resetHighlight()">
+      
+      <div class="season-info">
+        <div class="season-name">{{ res.season }}</div>
+        <div class="season-stats">
+          <span class="amount">£{{ res.value }}</span>
+          <span class="percentage">{{ res.percentage }}%</span>
+        </div>
+      </div>
+      
+      <div class="percentage-bar">
+        <div class="bar-fill" [style.width]="res.percentage + '%'"></div>
+      </div>
+    </div>
+  </div>
+</div>
