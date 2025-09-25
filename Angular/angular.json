@@ -73,7 +73,7 @@
               "buildTarget": "DashBoard_UK:build:production"
             },
             "development": {
-              "buildTarget": "todolist:build:development"
+               "buildTarget": "DashBoard_UK:build:development"
             }
           },
           "defaultConfiguration": "development"
