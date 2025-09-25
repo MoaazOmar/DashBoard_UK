@@ -7,7 +7,7 @@ import { RainRaturn } from '../interfaces/rain-raturn';
   providedIn: 'root'
 })
 export class RainReturnService {
-  private baseurl = 'http://localhost:3000/rain-Intensity-vs-Returns';
+  private baseurl = 'https://dashboardback-production-0aa3.up.railway.app/rain-Intensity-vs-Returns';
 
   constructor(private _http: HttpClient) { }
 

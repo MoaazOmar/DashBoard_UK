@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/todolist",
+            "outputPath": "dist/DashBoard_UK",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "baseHref": "/DashBoard_UK/",
@@ -70,7 +70,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "todolist:build:production"
+              "buildTarget": "DashBoard_UK:build:production"
             },
             "development": {
               "buildTarget": "todolist:build:development"

@@ -6,7 +6,7 @@ import{SeasonSale} from '../interfaces/season-sale'
   providedIn: 'root'
 })
 export class SeasonSaleService {
-  private baseurl = 'http://localhost:3000/season_Sales-vs-totalAmountSales'
+  private baseurl = 'https://dashboardback-production-0aa3.up.railway.app/season_Sales-vs-totalAmountSales'
   constructor(private _http:HttpClient) { }
   getSeasonSale():Observable<SeasonSale[]>{
     return this._http.get<SeasonSale[]>(this.baseurl)

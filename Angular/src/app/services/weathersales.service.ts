@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class WeathersalesService {
-  private baseurl = 'http://localhost:3000/weather-sales'
+  private baseurl = 'https://dashboardback-production-0aa3.up.railway.app/weather-sales'
   constructor(private http:HttpClient) { }
   getWeatherSales():Observable<WeatherSales[]>{
     return this.http.get<WeatherSales[]>(this.baseurl)

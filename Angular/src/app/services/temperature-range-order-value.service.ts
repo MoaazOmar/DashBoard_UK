@@ -7,7 +7,7 @@ import { Temporders } from '../interfaces/temporders';
   providedIn: 'root'
 })
 export class TemperatureRangeOrderValueService {
-  private baseurl = 'http://localhost:3000/Temp_range-orders'; 
+  private baseurl = 'https://dashboardback-production-0aa3.up.railway.app/Temp_range-orders'; 
 
   constructor(private _httpclient: HttpClient) {} 
 
