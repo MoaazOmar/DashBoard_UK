@@ -26,6 +26,7 @@
             "outputPath": "dist/todolist",
             "index": "src/index.html",
             "browser": "src/main.ts",
+            "baseHref": "/DashBoard_UK/",
             "polyfills": [
               "zone.js"
             ],
